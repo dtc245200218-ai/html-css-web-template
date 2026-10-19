@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Web Development Template</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.7;
+        color: #222;
+      }
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 10px 5%;
+        background: #111;
+      }
+
+      .nav-list {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        list-style: none;
+      }
+
+      .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: 20px;
+      }
+
+      .nav-list li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-list li a:hover {
+        color: #00d4ff;
+      }
+
+      .rightNav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      #search {
+        width: 150px;
+        padding: 8px;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background: transparent;
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background: #007bff;
+      }
+
+      .firstsection {
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #d1f5e0, #70d6a1);
+      }
+
+      .secondsection {
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #d9eaff, #82b4ff);
+      }
+
+      .box-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1100px;
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+      }
+
+      .firstHalf,
+      .secondHalf {
+        width: 100%;
+      }
+
+      .text-big {
+        margin-bottom: 18px;
+        font-size: 36px;
+        font-weight: bold;
+      }
+
+      .text-small {
+        font-size: 17px;
+        text-align: justify;
+      }
+
+      .section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        max-width: 1100px;
+        min-height: 400px;
+        margin: auto;
+        padding: 50px 20px;
+      }
+
+      /* Đảo chiều bố cục: ảnh bên trái, chữ bên phải */
+      .section-left {
+        flex-direction: row-reverse;
+      }
+
+      .paras {
+        flex: 1;
+      }
+
+      .sectionTag {
+        margin-bottom: 15px;
+        font-size: 34px;
+      }
+
+      .sectionSubTag {
+        font-size: 17px;
+        text-align: justify;
+      }
+
+      .thumbnail {
+        flex: 0 0 35%;
+        text-align: center;
+      }
+
+      .thumbnail img {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        margin: auto;
+        border: 4px solid white;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px #0002;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .background {
+        background: #111;
+      }
+
+      .text-footer {
+        padding: 25px 10px;
+        color: white;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .nav-list {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 12px;
+        }
+
+        .logo {
+          margin-right: 0;
+        }
+
+        .rightNav {
+          width: 100%;
+          justify-content: center;
+        }
+
+        #search {
+          width: 60%;
+        }
+
+        .text-big {
+          font-size: 28px;
+        }
+
+        .section,
+        .section-left {
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        .thumbnail {
+          width: 100%;
+        }
+
+        .thumbnail img {
+          max-width: 280px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Thanh điều hướng -->
+    <nav class="navbar background">
+      <ul class="nav-list">
+        <li class="logo">WEB DEV</li>
+        <li><a href="#web">Web Technology</a></li>
+        <li><a href="#program">C Programming</a></li>
+        <li><a href="#course">Courses</a></li>
+      </ul>
+
+      <form class="rightNav" id="searchForm">
+        <input type="text" id="search" placeholder="Tìm kiếm..." />
+        <button class="btn" type="submit">Search</button>
+      </form>
+    </nav>
+
+    <!-- Phần 1: Web Technology -->
+    <section class="firstsection" id="web">
+      <div class="box-main">
+        <div class="firstHalf">
+          <h1 class="text-big">Web Technology</h1>
+
+          <p class="text-small">
+            HTML là viết tắt của HyperText Markup Language. Đây là ngôn ngữ đánh
+            dấu được sử dụng để xây dựng cấu trúc trang web. HTML giúp trình
+            duyệt hiển thị văn bản, hình ảnh, liên kết và nhiều nội dung khác.
+            Khi kết hợp HTML với CSS và JavaScript, chúng ta có thể tạo ra những
+            trang web đẹp mắt và có tính tương tác cao.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phần 2: C Programming -->
+    <section class="secondsection" id="program">
+      <div class="box-main">
+        <div class="secondHalf">
+          <h1 class="text-big">C Programming</h1>
+
+          <p class="text-small">
+            C là một ngôn ngữ lập trình thủ tục được phát triển bởi Dennis
+            Ritchie. Ngôn ngữ C thường được sử dụng trong lập trình hệ thống, hệ
+            điều hành và trình biên dịch. C có cú pháp tương đối gọn gàng, hỗ
+            trợ thao tác bộ nhớ ở mức thấp và giúp người học hiểu rõ hơn cách
+            máy tính xử lý chương trình.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phần 3: Java -->
+    <section class="section" id="course">
+      <div class="paras">
+        <h1 class="sectionTag">Java Programming</h1>
+
+        <p class="sectionSubTag">
+          Java là một trong những ngôn ngữ lập trình phổ biến. Java hỗ trợ lập
+          trình hướng đối tượng và có thể chạy trên nhiều nền tảng thông qua
+          Java Virtual Machine (JVM). Mã nguồn Java được biên dịch thành
+          bytecode, sau đó JVM thực thi bytecode trên hệ thống tương ứng. Java
+          được sử dụng để phát triển ứng dụng web, ứng dụng doanh nghiệp và
+          nhiều loại phần mềm khác.
+        </p>
+      </div>
+
+      <div class="thumbnail">
+        <img
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80"
+          alt="Laptop dùng để lập trình"
+        />
+      </div>
+    </section>
+
+    <!-- Phần 4: HTML và CSS -->
+    <section class="section section-left">
+      <div class="paras">
+        <h1 class="sectionTag">HTML & CSS</h1>
+
+        <p class="sectionSubTag">
+          HTML xây dựng cấu trúc nội dung của trang web, trong khi CSS chịu
+          trách nhiệm trình bày giao diện. CSS cung cấp các thuộc tính như màu
+          sắc, kích thước, margin, padding và Flexbox để sắp xếp các thành phần.
+          Việc kết hợp HTML và CSS giúp trang web rõ ràng, dễ sử dụng và tương
+          thích với nhiều kích thước màn hình.
+        </p>
+      </div>
+
+      <div class="thumbnail">
+        <img
+          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=700&q=80"
+          alt="Mã nguồn lập trình trên màn hình"
+        />
+      </div>
+    </section>
+
+    <!-- Chân trang -->
+    <footer class="background">
+      <p class="text-footer">Copyright © 2026 - All rights reserved</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("searchForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const keyword = document.getElementById("search").value.trim();
+
+          if (keyword === "") {
+            alert("Vui lòng nhập nội dung tìm kiếm!");
+            return;
+          }
+
+          const sections = document.querySelectorAll("section");
+          let found = false;
+
+          sections.forEach(function (section) {
+            if (
+              section.innerText.toLowerCase().includes(keyword.toLowerCase())
+            ) {
+              section.scrollIntoView({ behavior: "smooth" });
+              found = true;
+            }
+          });
+
+          if (!found) {
+            alert("Không tìm thấy nội dung phù hợp!");
+          }
+        });
+    </script>
+  </body>
+</html>
